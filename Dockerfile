@@ -23,7 +23,8 @@ LABEL maintainer="Yumin Wu"
 
 COPY --from=buildStage /GoPath/src/goproxy/goproxy /usr/bin/goproxy
 
-RUN wget -O /data/pkg/mod/cache/download/index.html https://raw.githubusercontent.com/thisdocker/goproxy/master/default/index.html \
+RUN mkdir -p /data/pkg/mod/cache/download \
+  && wget -O /data/pkg/mod/cache/download/index.html https://raw.githubusercontent.com/thisdocker/goproxy/master/default/index.html \
   && wget -O /data/pkg/mod/cache/download/favicon.ico https://raw.githubusercontent.com/thisdocker/goproxy/master/default/favicon.ico
 
 EXPOSE 80
