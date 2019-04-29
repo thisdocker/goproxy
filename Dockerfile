@@ -25,7 +25,10 @@ COPY --from=buildStage /GoPath/src/goproxy/goproxy /usr/bin/goproxy
 
 RUN mkdir -p /data/pkg/mod/cache/download \
   && wget https://raw.githubusercontent.com/thisdocker/goproxy/master/default/index.html -O /data/pkg/mod/cache/download/index.html \
-  && wget https://raw.githubusercontent.com/thisdocker/goproxy/master/default/favicon.ico -O /data/pkg/mod/cache/download/favicon.ico
+  && wget https://raw.githubusercontent.com/thisdocker/goproxy/master/default/favicon.ico -O /data/pkg/mod/cache/download/favicon.ico \
+  && apk update && apk upgrade \
+  && apk add git mercurial subversion bzr fossil \
+  && rm -rf /var/cache/apk/* /tmp/*
 
 EXPOSE 80
 
