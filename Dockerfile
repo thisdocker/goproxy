@@ -2,7 +2,7 @@
 
 FROM wuyumin/go:dev AS buildStage
 
-ARG GOPROXY_VERSION=2c027c9
+ARG GOPROXY_VERSION=5a68b8f
 
 RUN apk update && apk upgrade \
   && apk add git \
