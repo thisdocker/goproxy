@@ -21,7 +21,7 @@ FROM wuyumin/go
 
 LABEL maintainer="Yumin Wu"
 
-COPY --from=buildStage /GoPath/src/goproxy/goproxy /usr/bin/goproxy
+COPY --from=buildStage /go/src/goproxy/goproxy /usr/bin/goproxy
 
 RUN mkdir -p /data/pkg/mod/cache/download \
   && wget https://raw.githubusercontent.com/thisdocker/goproxy/master/default/index.html -O /data/pkg/mod/cache/download/index.html \
